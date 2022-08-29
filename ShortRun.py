@@ -120,7 +120,7 @@ Nwalkers = 113
 
 track_length = int(T/dt)
 
-num_experiments = 1000
+num_experiments = 2
 
 ### run sim for specified number of experiments ###
 
@@ -172,6 +172,7 @@ v = np.concatenate(v).ravel()
 plt.hist(v,bins=50)
 plt.title('velocity')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vel_hist_short.png')
+plt.clf()
 
 # ### vx histogram of all experiments ###
 # for arr in all_data:
@@ -198,10 +199,12 @@ vy = np.concatenate(vy).ravel()
 plt.hist(vx,bins=50)
 plt.title('vx')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/velx_hist_short.png')
+plt.clf()
 
 plt.hist(vy,bins=50)
 plt.title('vy')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vely_hist_short.png')
+plt.clf()
 
 # ### vy histogram of all experiments ###
 # for arr in all_data:
@@ -252,10 +255,12 @@ dy = np.concatenate(dy).ravel()
 plt.hist(dx,bins=50)
 plt.title('dx')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/dx_hist_short.png')
+plt.clf()
 
 plt.hist(dy,bins=50)
 plt.title('dy')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/dy_hist_short.png')
+plt.clf()
 
 # ### theta histogram of all experiments ###
 # for arr in all_data:
@@ -287,6 +292,7 @@ theta = np.concatenate(theta).ravel()
 plt.hist(theta,bins=50)
 plt.title('theta')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/theta_hist_short.png')
+plt.clf()
 
 ### average speed_x over time ###
 vxlag=[]
@@ -298,6 +304,7 @@ plt.title('Average speed_x over time')
 plt.xlabel('time (10 min)')
 plt.ylabel('average speed_x')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/velx_avg_short.png')
+plt.clf()
 
 ### average speed_y over time ###
 vylag=[]
@@ -309,6 +316,7 @@ plt.title('Average speed_y over time')
 plt.xlabel('time (10 min)')
 plt.ylabel('average speed_y')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vely_avg_short.png')
+plt.clf()
 
 ### average speed over time ###
 vlag=[]
@@ -320,6 +328,7 @@ plt.title('Average speed over time')
 plt.xlabel('time (10 min)')
 plt.ylabel('average speed')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vel_avg_short.png')
+plt.clf()
 
 ### speed_x window averaged over time ###
 window_size = 3
@@ -334,12 +343,14 @@ for df in avg_data:
 plt.xlabel(r'integer of window number')
 plt.ylabel('mean of vx with window size 3')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/velx_winmean_short.png')
+plt.clf()
 
 #average of average means for lag
 plt.plot(np.average(vx_winsize3,axis=0))
 plt.ylabel('cell avgeraged mean of vx of window size 3')
 plt.xlabel(r'Integer of window number')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/velx_avgwinmean_short.png')
+plt.clf()
 
 ### speed_y window averaged over time ###
 window_size = 3
@@ -354,12 +365,14 @@ for df in avg_data:
 plt.xlabel(r'integer of window number')
 plt.ylabel('mean of vy with window size 3')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vely_winmean_short.png')
+plt.clf()
 
 #average of average means for lag
 plt.plot(np.average(vy_winsize3,axis=0))
 plt.ylabel('cell avgeraged mean of vy of window size 3')
 plt.xlabel(r'Integer of window number')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vely_avgwinmean_short.png')
+plt.clf()
 
 ### speed window averaged over time ###
 window_size = 3
@@ -374,12 +387,14 @@ for df in avg_data:
 plt.xlabel(r'integer of window number')
 plt.ylabel('mean of v with window size 3')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vel_winmean_short.png')
+plt.clf()
 
 #average of average means for lag
 plt.plot(np.average(v_winsize3,axis=0))
 plt.ylabel('cell avgeraged mean of v of window size 3')
 plt.xlabel(r'Integer of window number')
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/vel_avgwinmean_short.png')
+plt.clf()
 
 ### speed acf plot ###
 poslagaverage = np.zeros(300)
@@ -408,6 +423,7 @@ plt.errorbar(np.arange(0,track_length-4),poslagaverage[0:track_length-4],yerr=st
 plt.xlabel("time lag")
 plt.title(" Autocorrelation speed")
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/speed_acf_avg_short.png')
+plt.clf()
 
 ### speed_x acf plot ###
 poslagaverage = np.zeros(300)
@@ -436,6 +452,7 @@ plt.errorbar(np.arange(0,track_length-4),poslagaverage[0:track_length-4],yerr=st
 plt.xlabel("time lag")
 plt.title(" Autocorrelation speed_x")
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/speedx_acf_avg_short.png')
+plt.clf()
 
 ### speed_y acf plot ###
 poslagaverage = np.zeros(300)
@@ -464,3 +481,4 @@ plt.errorbar(np.arange(0,track_length-4),poslagaverage[0:track_length-4],yerr=st
 plt.xlabel("time lag")
 plt.title(" Autocorrelation speed_y")
 plt.savefig('/Users/elizabethdavis/Desktop/CellMigrationSim/ShortRunFigs/speedy_acf_avg_short.png')
+plt.clf()
